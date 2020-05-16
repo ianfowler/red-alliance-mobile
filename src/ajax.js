@@ -1,8 +1,8 @@
 const apiHost = 'https://scouting-api.herokuapp.com/';
 
-import { GoogleSignin, statusCodes } from 'react-native-google-signin';
+import {GoogleSignin, statusCodes} from 'react-native-google-signin';
 
-import { Alert, Platform } from "react-native";
+import {Alert, Platform} from 'react-native';
 
 import Globals from "./GlobalDefinitions";
 
