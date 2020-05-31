@@ -49,7 +49,15 @@ export default class TeamList extends React.Component {
     showRefresh = (serious) => {
         this.setState({refreshing: serious});
     }
-
+    onScoutAttempt = (id, desc) => {
+        if (desc === undefined) {
+            this.props.onItemPress()
+        } else {
+            // get the whoami, compare to current ID
+            // if they are the same, then get data, set that to the item data, and allow entry.
+            // TODO: implement this
+        }
+    }
     render () {
         if (this.props.teams.length === 0) {
             return (
@@ -88,7 +96,7 @@ export default class TeamList extends React.Component {
                             <FlatList
                                 data = {this.props.teams}
                                 renderItem={({item}) => 
-                                    <TeamCell number={item.teamNumber} isBlue={item.isBlue} scouterDescription={item.scouterDescription} onPress={item.scouterDescription ? this.doNothing : this.props.onItemPress} showRefresh={this.showRefresh}/>
+                                    <TeamCell number={item.teamNumber} isBlue={item.isBlue} scouterDescription={item.scouterDescription} onPress={this.onScoutAttempt(item.scouterID, item.scouterDescription)} showRefresh={this.showRefresh}/>
                                 }
                                 keyExtractor= {item => String(item.teamNumber)}
                                 refreshControl={
